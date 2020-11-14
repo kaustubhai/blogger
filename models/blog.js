@@ -18,9 +18,10 @@ const blogSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    Author: {
+    author: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        ref: 'User',
+        required: true
     }
 })
 
