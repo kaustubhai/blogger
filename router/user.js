@@ -6,6 +6,9 @@ const jwt = require('jsonwebtoken')
 
 const User = require('../models/user')
 
+// @Route: GET/api/user
+// @Desc: LoadUser from the jwt token in x-auth-token header
+
 Router.get('/', auth, async (req, res) => {
     try {
         const user = await User.findById(req.user.id).select('-password')
@@ -15,6 +18,9 @@ Router.get('/', auth, async (req, res) => {
         res.status(500).json({ msg: "Internal Server Error"})
     }
 })
+
+// @Route: POST/api/user/login
+// @Desc: Take email, password, match in database, assign jwt
 
 Router.post('/login', async (req, res) => {
     const { email, password } = req.body
@@ -40,6 +46,9 @@ Router.post('/login', async (req, res) => {
                 res.json({token})
         })
 })
+
+// @Route: POST/api/user/register
+// @Desc: Take name, username, email, password, store in database, assign jwt
 
 Router.post('/register', async (req, res) => {
 
@@ -80,14 +89,6 @@ Router.post('/register', async (req, res) => {
             console.log(e)
             res.status(500).json({ msg: "Internal Server Error"})
         }
-})
-
-Router.put('/', auth, (req, res) => {
-    res.send("PUT User")
-})
-
-Router.delete('/', auth, (req, res) => {
-    res.send("DELETE User")
 })
 
 module.exports = Router
