@@ -7,6 +7,7 @@ import Dashboard from './components/pages/Dashboard';
 import BlogState from './context/Blogs/BlogState';
 import AuthState from './context/auth/AuthState';
 import setAuthToken from './context/utils/setAuthToken'
+import BlogSingle from './components/pages/BlogSingle';
 
 if (localStorage.getItem('token'))
   setAuthToken(localStorage.getItem('token'))
@@ -21,6 +22,7 @@ function App() {
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
+            <Route exact path="/blog/read-one/:id" component={BlogSingle} />
           </Router>
         </BlogState>
       </AuthState>

@@ -3,7 +3,7 @@ import axios from 'axios'
 
 const BlogItemHalf = ({ blog }) => {
 
-  const [author, setAuthor] = useState('Kaustubh')
+  const [author, setAuthor] = useState('')
 
   const getAuthor = (id) => {
     axios.get(`/api/blog/author/${id}`)
@@ -33,7 +33,7 @@ const BlogItemHalf = ({ blog }) => {
         
         <div style={{ marginTop: "15px" }}>
           <h4 style={{ display: "inline" }}>{author}</h4>
-          <a style={{ float: "right" }} href="#!">
+          <a style={{ float: "right" }} href={`/blog/read-one/${blog._id}`}>
             Read More
           </a>
         </div>

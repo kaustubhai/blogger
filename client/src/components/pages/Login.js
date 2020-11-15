@@ -1,13 +1,19 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import AuthContext from '../../context/auth/AuthContext'
 
-const Login = () => {
+const Login = props => {
 
     const authContext = useContext(AuthContext)
-    const { loginUser } = authContext
+    const { loginUser, isAuthenticated } = authContext
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    useEffect(() => {
+        if (isAuthenticated)
+            props.history.push('/')
+            // eslint-disable-next-line
+    }, [isAuthenticated])
 
     const onSubmit = (e) => {
         e.preventDefault()

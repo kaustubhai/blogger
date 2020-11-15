@@ -12,7 +12,7 @@ const Dashboard = () => {
         // eslint-disable-next-line
     }, [])
 
-    if (!blogs || blogs.length === 0)
+    if (!blogs || blogs.length === 0 )
         return (
             <div className="container grid grid-2">
                 <h3>No Blogs Found. Try Refreshing</h3>

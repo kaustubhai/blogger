@@ -33,6 +33,14 @@ const AuthReducer = (state, action) => {
                 loading: false,
                 isAuthenticated: true
             })
+        case LOGOUT:
+            localStorage.removeItem('token')
+            return ({
+                ...state,
+                user: null,
+                loading: false,
+                isAuthenticated: false
+            })
         case AUTH_ERROR:
             return ({
                 ...state,

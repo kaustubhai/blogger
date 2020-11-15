@@ -98,4 +98,17 @@ Router.get('/dashboard', async (req, res) => {
     }
 })
 
+// @Route: GET /api/blog/:id
+// @Desc: Fetch specific blog
+
+Router.get('/:id', async (req, res) => {
+    try {
+        const blogs = await Blog.findById(req.params.id)
+        res.json(blogs)
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ msg: "Internal Server Error"})
+    }
+})
+
 module.exports = Router
