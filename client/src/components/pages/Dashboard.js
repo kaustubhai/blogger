@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
 import BlogItemHalf from '../layouts/BlogItemHalf'
 import BlogContext from '../../context/Blogs/BlogContext'
 
@@ -21,7 +21,7 @@ const Dashboard = () => {
 
     return (
         <div className="container grid grid-2">
-            { blogs.map((blog) => <BlogItemHalf key={blog.id} blog={blog}></BlogItemHalf>)}
+            { blogs.map((blog) => <BlogItemHalf key={blog._id} blog={blog}></BlogItemHalf>)}
         </div>
     )
 }

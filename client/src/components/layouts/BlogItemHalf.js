@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from 'axios'
 
-const BlogItemHalf = ({blog}) => {
+const BlogItemHalf = ({ blog }) => {
+
+  const [author, setAuthor] = useState('Kaustubh')
+
+  const getAuthor = (id) => {
+    axios.get(`/api/blog/author/${id}`)
+      .then((res) => {
+        const auth = res.data.name;
+        setAuthor(auth.charAt(0).toUpperCase() + auth.slice(1))
+      })
+  }
+  
+  getAuthor(blog.author)
+
   return (
     <div>
       <div className="card">
@@ -16,9 +30,9 @@ const BlogItemHalf = ({blog}) => {
         <p style={{ marginTop: "15px" }}>
           {blog.description}
         </p>
-
+        
         <div style={{ marginTop: "15px" }}>
-          <h4 style={{ display: "inline" }}>Kaustubh Mishra</h4>
+          <h4 style={{ display: "inline" }}>{author}</h4>
           <a style={{ float: "right" }} href="#!">
             Read More
           </a>

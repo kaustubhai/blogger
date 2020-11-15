@@ -3,6 +3,7 @@ const Router = express.Router()
 const auth = require('../middleware/auth')
 
 const Blog = require('../models/blog')
+const User = require('../models/user')
 
 // @Route: GET /api/blog
 // @Desc: Read existing blogs of current user
@@ -24,15 +25,12 @@ Router.get('/', auth, async (req, res) => {
 // @Desc: Read current blog author details
 
 Router.get('/author/:id', async (req, res) => {
-    
     try {
-        const author = await Blog.find({ author: req.params.id })
-        if (!author)
-            return res.status(400).send("No author found")
-        res.json(author)
+        const user = await User.findById(req.params.id).select('-password')
+        res.json(user)
     } catch (error) {
         console.log(error)
-        res.json({ msg: "Internal Server Error"})
+        res.status(500).json({ msg: "Internal Server Error"})
     }
 })
 
