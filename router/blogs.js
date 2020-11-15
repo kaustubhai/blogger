@@ -20,12 +20,27 @@ Router.get('/', auth, async (req, res) => {
     }
 })
 
+// @Route: GET /api/blog/author/:id
+// @Desc: Read current blog author details
+
+Router.get('/author/:id', async (req, res) => {
+    
+    try {
+        const author = await Blog.find({ author: req.params.id })
+        if (!author)
+            return res.status(400).send("No author found")
+        res.json(author)
+    } catch (error) {
+        console.log(error)
+        res.json({ msg: "Internal Server Error"})
+    }
+})
+
 // @Route: POST /api/blog
 // @Desc: Write a new blog 
 
 Router.post('/', auth, async (req, res) => {
-    const { title, image, description } = req.body
-
+    const { title, image, description } = req.body;
     try {
         const blog = new Blog({ title, description, image, author: req.user.id })
         await blog.save()
