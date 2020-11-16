@@ -1,19 +1,6 @@
-import React, { useState } from "react";
-import axios from 'axios'
+import React from "react";
 
 const BlogItemHalf = ({ blog }) => {
-
-  const [author, setAuthor] = useState('')
-
-  const getAuthor = (id) => {
-    axios.get(`/api/blog/author/${id}`)
-      .then((res) => {
-        const auth = res.data.name;
-        setAuthor(auth.charAt(0).toUpperCase() + auth.slice(1))
-      })
-  }
-  
-  getAuthor(blog.author)
 
   return (
     <div>
@@ -32,7 +19,7 @@ const BlogItemHalf = ({ blog }) => {
         </p>
         
         <div style={{ marginTop: "15px" }}>
-          <h4 style={{ display: "inline" }}>{author}</h4>
+          <h4 style={{ display: "inline" }}>{blog.initials.charAt(0).toUpperCase() + blog.initials.slice(1)}</h4>
           <a style={{ float: "right" }} href={`/blog/read-one/${blog._id}`}>
             Read More
           </a>

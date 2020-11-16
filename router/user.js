@@ -33,7 +33,8 @@ Router.post('/login', async (req, res) => {
         
         const payload = {
             user: {
-                id: user.id
+                id: user.id,
+                username: user.username
             }
         }
 
@@ -73,7 +74,8 @@ Router.post('/register', async (req, res) => {
             
             const payload = {
                 user: {
-                    id: user.id
+                    id: user.id,
+                    username: user.username
                 }
             }
 

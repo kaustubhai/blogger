@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react'
 import BlogContext from '../../context/Blogs/BlogContext'
+import Moment from 'react-moment'
 
 const BlogSingle = () => {
 
@@ -17,7 +18,7 @@ const BlogSingle = () => {
     if (!blog)
         return <h3 className="p-2">Loading...</h3>
 
-    const { title, description, image, date } = blog
+    const { title, description, image, date, initials } = blog
 
     return (
         <div className="container">
@@ -26,8 +27,12 @@ const BlogSingle = () => {
             </div>
             <div className="all-center">
                 <h1 className="all-center">{title}</h1>
-                <h4>{ }</h4>
-                <p>{description}</p>
+                <h4 style={{marginBottom: '50px'}}>- { initials }</h4>
+                <p><i class="fas fa-quote-left fa-3x fa-pull-left "></i>{ description }</p>
+            </div>
+            <div style={{marginTop: '25px'}} className="card">
+                <h4 style={{paddingLeft: '25px', display: 'inline'}}><i className="fas fa-user-edit"></i> Author: { initials.charAt(0).toUpperCase() + initials.slice(1) }</h4>
+                <h4 style={{ paddingRight: '25px', float: 'right', display: 'inline' }}><i className="far fa-calendar-check"></i> Last Updated: <Moment format="DD-MMM-YYYY">{ date}</Moment></h4>
             </div>
         </div>
     )

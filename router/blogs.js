@@ -40,7 +40,7 @@ Router.get('/author/:id', async (req, res) => {
 Router.post('/', auth, async (req, res) => {
     const { title, image, description } = req.body;
     try {
-        const blog = new Blog({ title, description, image, author: req.user.id })
+        const blog = new Blog({ title, description, image, initials: req.user.username, author: req.user.id })
         await blog.save()
         res.json(blog)
     } catch (error) {

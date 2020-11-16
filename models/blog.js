@@ -18,6 +18,10 @@ const blogSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    initials: {
+        type: String,
+        required: true
+    },
     author: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

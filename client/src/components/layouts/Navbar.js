@@ -44,7 +44,7 @@ const Navbar = (props) => {
             </h2>
             <ul style={{float: 'right'}}>
                 <li style={{marginRight: '15px'}}>
-                        <a className="btn btn-primary" href='#!'>{ user.name }</a>
+                        <a className="btn btn-primary" href='#!'>{ user.name.charAt(0).toUpperCase() + user.name.slice(1) }</a>
                 </li>
                 <li>
                     <a href='/' onClick={onClick} className="btn btn-light">Logout</a>
