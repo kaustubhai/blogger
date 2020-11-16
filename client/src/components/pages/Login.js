@@ -10,6 +10,8 @@ const Login = props => {
     const [password, setPassword] = useState('')
 
     useEffect(() => {
+        setEmail('')
+        setPassword('')
         if (isAuthenticated)
             props.history.push('/')
             // eslint-disable-next-line
@@ -26,7 +28,7 @@ const Login = props => {
             <h1 className="my-2">
                 Account <span className="text-primary">Login</span>
             </h1>
-            <form onSubmit={onSubmit}>
+            <form autoComplete="off" onSubmit={onSubmit}>
                 <div className="form-group">
                     <label htmlFor="email">Email <span className="text-danger">*</span> </label>
                     <input type="email" name="email" onChange={(e) => setEmail(e.target.value)} value={email}></input>

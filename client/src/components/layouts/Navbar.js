@@ -19,9 +19,9 @@ const Navbar = (props) => {
         logoutUser()
     }
     
-    if (!isAuthenticated && !loading) {
+    if (!isAuthenticated && !loading && !user) {
         return (
-            <div style={{ display: 'flex', height: '60px', paddingLeft: '50px', paddingRight: '50px'}} className="navbar bg-primary">
+            <div style={{ display: 'flex', height: '60px'}} className="navbar bg-primary">
             <h2 style={{float: 'left' ,justifyItems:"center"}}>
                 <a className="text-light" href="/"><i style={{marginRight: '15px'}} className={icon}></i> {title}</a>
             </h2>
@@ -38,13 +38,13 @@ const Navbar = (props) => {
     }
     else {
         return (
-            <div style={{ display: 'flex', height: '60px', paddingLeft: '50px', paddingRight: '30px'}} className="navbar bg-primary">
+            <div style={{ display: 'flex', height: '60px'}} className="navbar bg-primary">
             <h2 style={{float: 'left' ,justifyItems:"center"}}>
                 <a className="text-light" href="/"><i style={{marginRight: '5px'}} className={icon}></i> {title}</a>
             </h2>
             <ul style={{float: 'right'}}>
                 <li style={{marginRight: '15px'}}>
-                        <a className="btn btn-primary" href='#!'>{ user.name.charAt(0).toUpperCase() + user.name.slice(1) }</a>
+                        <a className="btn btn-primary" href='#!'>{ (user.name ? user.name.charAt(0).toUpperCase() + user.name.slice(1) : '') }</a>
                 </li>
                 <li>
                     <a href='/' onClick={onClick} className="btn btn-light">Logout</a>

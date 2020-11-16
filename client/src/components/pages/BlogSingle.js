@@ -31,8 +31,8 @@ const BlogSingle = () => {
                 <p><i class="fas fa-quote-left fa-3x fa-pull-left "></i>{ description }</p>
             </div>
             <div style={{marginTop: '25px'}} className="card">
-                <h4 style={{paddingLeft: '25px', display: 'inline'}}><i className="fas fa-user-edit"></i> Author: { initials.charAt(0).toUpperCase() + initials.slice(1) }</h4>
-                <h4 style={{ paddingRight: '25px', float: 'right', display: 'inline' }}><i className="far fa-calendar-check"></i> Last Updated: <Moment format="DD-MMM-YYYY">{ date}</Moment></h4>
+                <h4 style={{paddingLeft: '25px', display: 'inline-block'}}><i className="fas fa-user-edit"></i> Author: { initials.charAt(0).toUpperCase() + initials.slice(1) }</h4>
+                <h4 style={{ paddingRight: '25px', float: 'right', display: 'inline-block' }}><i className="far fa-calendar-check"></i> Last Updated: <Moment format="DD-MMM-YYYY">{ date}</Moment></h4>
             </div>
         </div>
     )

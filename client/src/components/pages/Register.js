@@ -5,7 +5,7 @@ const Login = props => {
 
     const authContext = useContext(AuthContext)
 
-    const { registerUser, isAuthenticated } = authContext
+    const { registerUser, isAuthenticated, setAlert } = authContext
 
     useEffect(() => {
         if (isAuthenticated)
@@ -22,9 +22,9 @@ const Login = props => {
     const onSubmit = (e) => {
         e.preventDefault()
         if (password !== password2)
-            return console.log("Passwords dont match")
+            return setAlert("Passwords dont match")
         else if (password.length <= 7)
-            return console.log("Password should be of more than 8 characters")
+            return setAlert("Password should be of more than 8 characters")
         else {
             const userToBe = { name, email, username, password }
             registerUser(userToBe)
@@ -37,7 +37,7 @@ const Login = props => {
             <h1 className="my-2">
                 Account <span className="text-primary">Register</span>
             </h1>
-            <form onSubmit={onSubmit}>
+            <form autoComplete="off" onSubmit={onSubmit}>
                 <div className="form-group">
                     <label htmlFor="name">Name <span className="text-danger">*</span> </label>
                     <input type="text" name="name" onChange={(e) => setName(e.target.value)} value={name} required ></input>

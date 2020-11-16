@@ -10,7 +10,8 @@ import {
     AUTH_ERROR,
     LOGIN_SUCCESS,
     LOGIN_FAIL,
-    LOGOUT
+    LOGOUT,
+    REMOVE_ALERT
 } from '../types'
 
 const AuthState = props => {
@@ -67,13 +68,21 @@ const AuthState = props => {
             dispatch({ type: LOGIN_SUCCESS, payload: user.data.token })
             loadUser()
         } catch (error) {
+            console.log(error)
             dispatch({ type: AUTH_ERROR, payload: error.response.data.msg })
-            console.log(error.response.data)
         }
     }
 
     const logoutUser = () => {
-        dispatch({ type: LOGOUT })
+        dispatch({ type: LOGOUT, payload: "Logout Successful" })
+    }
+
+    const setAlert = (msg) => {
+        dispatch({ type: AUTH_ERROR, payload: msg })
+    }
+
+    const removeAlert = () => {
+        dispatch({ type: REMOVE_ALERT })
     }
 
     return (
@@ -85,7 +94,9 @@ const AuthState = props => {
             registerUser,
             loginUser,
             loadUser,
-            logoutUser
+            logoutUser,
+            setAlert,
+            removeAlert
         }}>
             {props.children}
         </AuthContext.Provider>

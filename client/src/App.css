@@ -63,7 +63,6 @@ img {
 
 .lead {
   font-size: 1.5rem;
-  margin-bottom: 1rem;
 }
 
 .text-center {
@@ -409,6 +408,13 @@ a:hover {
 
 /* Mobile Styles */
 @media (max-width: 700px) {
+
+  .container{
+    width: 100%;
+    max-width: 100%;
+    padding: 0 0.5rem;
+  }
+
   .hide-sm {
     display: none;
   }
@@ -436,6 +442,7 @@ a:hover {
   .navbar {
     display: block;
     text-align: center;
+    padding: 0.7rem 0.5rem;
   }
 
   .navbar ul {

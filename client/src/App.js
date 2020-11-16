@@ -8,6 +8,7 @@ import BlogState from './context/Blogs/BlogState';
 import AuthState from './context/auth/AuthState';
 import setAuthToken from './context/utils/setAuthToken'
 import BlogSingle from './components/pages/BlogSingle';
+import AlertPop from './components/layouts/AlertPop';
 
 if (localStorage.getItem('token'))
   setAuthToken(localStorage.getItem('token'))
@@ -18,6 +19,7 @@ function App() {
       <AuthState>
         <BlogState>
           <Navbar />
+          <AlertPop/>
           <Router>
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/login" component={Login} />
