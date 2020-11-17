@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react'
-import { GET_EVERY_BLOG, GET_BLOG, POST_BLOG, REMOVE_ALERT } from '../types'
+import { GET_EVERY_BLOG, GET_BLOG, POST_BLOG, REMOVE_ALERT, USER_BLOG, LOAD_BLOG, UPDATE_BLOG, DELETE_BLOG } from '../types'
 import BlogContext from './BlogContext'
 import BlogReducer from './BlogReducer'
 
@@ -12,7 +12,7 @@ const BlogState = props => {
         blogs: null,
         blog: null,
         current: null,
-        loading: false,
+        loading: true,
         alert: null
     }
 
@@ -52,12 +52,65 @@ const BlogState = props => {
             if (localStorage.getItem('token')) {
                 setAuthToken(localStorage.getItem('token'))
                 const res = await axios.post('http://localhost:5000/api/blog', formData, config)
-                console.log(res)
-                dispatch({ type: POST_BLOG, payload: res })
+                dispatch({ type: POST_BLOG, payload: res.data })
             
             }
         }
         catch (error) {
+            console.log(error)
+        }
+    }
+
+    const getUserBlogs = async () => {
+        try {
+            if (localStorage.getItem('token'))
+                setAuthToken(localStorage.getItem('token'))
+            const res = await axios.get('http://localhost:5000/api/blog');
+            console.log(res.data)
+            dispatch({ type: USER_BLOG, payload: res.data})
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const updateBlog = async (formData, id) => {
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+        try {
+            if (localStorage.getItem('token')) {
+                setAuthToken(localStorage.getItem('token'))
+                const res = await axios.put(`http://localhost:5000/api/blog/${id}`, formData, config)
+                dispatch({ type: UPDATE_BLOG, payload: res.data })
+            
+            }
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
+    const loadBlog = async (id) => {
+        try {
+            if (localStorage.getItem('token'))
+                setAuthToken(localStorage.getItem('token'))
+            const res = await axios.put(`http://localhost:5000/api/blog/${id}`)
+            dispatch({ type: LOAD_BLOG, payload: res.data })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const deleteBlog = async (id) => {
+        console.log(id)
+        try {
+            if (localStorage.getItem('token'))
+                setAuthToken(localStorage.getItem('token'))
+            const res = await axios.delete(`http://localhost:5000/api/blog/${id}`)
+            dispatch({ type: DELETE_BLOG, payload: res.data })
+        } catch (error) {
             console.log(error)
         }
     }
@@ -71,9 +124,14 @@ const BlogState = props => {
             blogs: state.blogs,
             blog: state.blog,
             alert: state.alert,
+            loading: state.loading,
             getBlogs,
             getOneBlog,
+            loadBlog,
+            updateBlog,
             addNewBlog,
+            getUserBlogs,
+            deleteBlog,
             removeBlogAlert
         }}>
             {props.children}

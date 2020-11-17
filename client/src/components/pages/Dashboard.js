@@ -10,7 +10,7 @@ const Dashboard = () => {
     useEffect(() => {
         getBlogs()
         // eslint-disable-next-line
-    }, [])
+    }, [blogs])
 
     if (!blogs || blogs.length === 0 )
         return (

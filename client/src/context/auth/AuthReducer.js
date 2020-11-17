@@ -7,6 +7,7 @@ import {
     LOGIN_FAIL,
     LOGOUT,
     REMOVE_ALERT,
+    LOAD_BLOG,
 } from '../types'
 
 const AuthReducer = (state, action) => {

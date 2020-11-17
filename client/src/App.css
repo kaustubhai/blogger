@@ -40,15 +40,29 @@ img {
   width: 100%;
 }
 
-/* Utilities */
-.container {
-  max-width: 1100px;
-  margin: auto;
-  overflow: hidden;
-  padding: 0 2rem;
+/* My Classes */
+
+.btn-edit{
+  display: none;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: 5px;
+  position: relative;
 }
 
-/* Text Styles*/
+.btn-hide-row{
+  position: absolute;
+}
+
+.blog-item-half > .btn-hide-row > .btn-edit{
+  display: none;
+  position: relative;
+  transition: display 0.3s ease-in;
+}
+
+.blog-item-half:hover > .btn-hide-row > .btn-edit{
+  display: inline-block;
+}
 
 .desc{
   overflow: hidden;
@@ -59,6 +73,16 @@ img {
   -webkit-line-clamp: 2; 
   -webkit-box-orient: vertical;
 }
+
+/* Utilities */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+/* Text Styles*/
 
 .x-large {
   font-size: 4rem;

@@ -10,7 +10,8 @@ import setAuthToken from './context/utils/setAuthToken'
 import BlogSingle from './components/pages/BlogSingle';
 import AlertPop from './components/layouts/AlertPop';
 import AddBlog from './components/pages/AddBlog';
-import userDashboard from './components/pages/userDashboard';
+import UserDashboard from './components/pages/UserDashboard';
+import UpdateBlog from './components/pages/UpdateBlog';
 
 if (localStorage.getItem('token'))
   setAuthToken(localStorage.getItem('token'))
@@ -28,7 +29,8 @@ function App() {
             <Route exact path="/register" component={Register} />
             <Route exact path="/blog/read-one/:id" component={BlogSingle} />
             <Route exact path="/blog/add-new" component={AddBlog} />
-            <Route exact path="/user/dashboard" component={userDashboard} />
+            <Route exact path="/blog/update-one/:id" component={UpdateBlog} />
+            <Route exact path="/user/dashboard" component={UserDashboard} />
           </Router>
         </BlogState>
       </AuthState>

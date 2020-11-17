@@ -77,7 +77,8 @@ Router.put('/:id', auth, async (req, res) => {
 
 Router.delete('/:id', auth, async (req, res) => {
     try {
-        const deleted = await Blog.findOneAndDelete(req.params.id)
+        console.log(req.params.id)
+        const deleted = await Blog.findByIdAndRemove(req.params.id)
         res.json(deleted)
     } catch (error) {
         console.log(error)
