@@ -12,6 +12,7 @@ import AlertPop from './components/layouts/AlertPop';
 import AddBlog from './components/pages/AddBlog';
 import UserDashboard from './components/pages/UserDashboard';
 import UpdateBlog from './components/pages/UpdateBlog';
+import Footer from './components/layouts/Footer';
 
 if (localStorage.getItem('token'))
   setAuthToken(localStorage.getItem('token'))
@@ -32,6 +33,7 @@ function App() {
             <Route exact path="/blog/update-one/:id" component={UpdateBlog} />
             <Route exact path="/user/dashboard" component={UserDashboard} />
           </Router>
+          <Footer/>
         </BlogState>
       </AuthState>
     </div>

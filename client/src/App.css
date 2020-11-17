@@ -42,6 +42,28 @@ img {
 
 /* My Classes */
 
+.footer{
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+.footer .social a, 
+.footer li a{
+  margin: 0 5px;
+  color: #fff;
+}
+.footer .grid{
+  color: #fff;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer .social a:hover, 
+.footer li a:hover{
+  color: var(--dark-color);
+}
+
 .btn-edit{
   display: none;
   padding-right: 15px;
