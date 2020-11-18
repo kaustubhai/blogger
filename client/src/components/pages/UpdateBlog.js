@@ -1,10 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import BlogContext from '../../context/Blogs/BlogContext'
 
 const UpdateBlog = props => {
 
     const blogContext = useContext(BlogContext)
-    const { updateBlog, blog, loadBlog, loading, alert } = blogContext
+    const { updateBlog, blog, loadBlog, loading, alert, deleteBlog } = blogContext
 
     const id = window.location.href.split('-')[1].split('/')[1]
     var x = 1
@@ -45,6 +46,10 @@ const UpdateBlog = props => {
         console.log(blogToBe)
     } 
 
+    const onClickDelete = (e) => {
+        deleteBlog(blog._id)
+    }
+
     return (
         <div className="container ">
             <h1 className="all-center">Update your Blog</h1>
@@ -60,9 +65,10 @@ const UpdateBlog = props => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="description">Description <span className="text-danger">*</span> </label>
-                        <textarea onChange={(e) => setDescription(e.target.value)} rows="6" type="text" name="description" value={description} placeholder="Your Blog Content goes here" required></textarea>
+                        <textarea onChange={ (e) => setDescription(e.target.value)}  type="text" name="description" id="textarea1" value={description} class="materialize-textarea" rows="7" placeholder="Your Blog Content goes here" required></textarea>
                     </div>
-                    <input type="submit" className="btn btn-primary btn-block" value="Update my Blog" style={{padding: '10px 0px', marginTop: '25px'}}/>
+                    <Link to="/user/dashboard"><button onClick={onClickDelete} type="submit" className="btn py-2 left my-2 black text-white btn-block" style={{width: '25%'}}>Delete Blog</button></Link>
+                    <button type="submit" className="btn py-2 right my-2 black text-white btn-block" style={{width: '25%'}}>Update my Blog</button>
                 </form>
             </div>
         </div>

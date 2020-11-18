@@ -21,8 +21,10 @@ const UserDashboard = () => {
             </div>
         )
     return (
-        <div className="container grid grid-2">
-            { blogs.map((blog) => <BlogItemHalf key={blog._id} blog={blog}></BlogItemHalf>)}
+        <div className="container">
+            <div className="row">
+                { blogs.map((blog) => <BlogItemHalf key={blog._id} blog={blog}></BlogItemHalf>)}
+            </div>
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import AuthContext from '../../context/auth/AuthContext'
 import BlogContext from '../../context/Blogs/BlogContext'
 
@@ -9,51 +10,51 @@ const BlogItemHalf = ({ blog }) => {
   const blogContext = useContext(BlogContext)
 
   const { user } = authContext
-  const { deleteBlog } = blogContext
-
-  const onClickDelete = (e) => {
-    deleteBlog(blog._id)
-  }
-
     
   if(user)
     return (
-      <div class="col s12 m6">
-        <div class="card">
-          <div class="card-image">
+      <div className="col s12 m6">
+        <div className="card">
+          <div className="card-image">
               <img src={blog.image}
               height="200px"
               alt={blog.title}
               style={{ objectFit: "cover", marginBottom: "15px", marginTop: "5px" }} />
               
-                  <a style={{display: user._id === blog.author ? '' : 'none'}} class="btn-floating halfway-fab waves-effect waves-light red" href={`/blog/update-one/${blog._id}`}><i class="material-icons">edit</i></a>
+                  <Link style={{display: user._id === blog.author ? '' : 'none'}} className="btn-floating halfway-fab waves-effect waves-light red" to={`/blog/update-one/${blog._id}`}><i className="material-icons">edit</i></Link>
                 
           </div>
           
-          <div class="card-content">
-          <span class="card-title">{blog.title}</span>
+          <div className="card-content">
+          <span className="card-title">{blog.title}</span>
             <p className="desc" style={{marginTop: '15px'}}>
                {description}
             </p>
+          </div>
+          <div className="card-action">
+            <Link className="text-right" to={`/blog/read-one/${blog._id}`}>Read Blog</Link>
           </div>
         </div>
       </div>
     );
   
     return (
-      <div class="col s12 m6">
-        <div class="card">
-          <div class="card-image">
+      <div className="col s12 m6">
+        <div className="card">
+          <div className="card-image">
               <img src={blog.image}
               height="200px"
               alt={blog.title}
               style={{ objectFit: "cover", marginBottom: "15px", marginTop: "5px" }}/>
           </div>
-          <div class="card-content">
-          <span class="card-title">{blog.title}</span>
+          <div className="card-content">
+          <span className="card-title">{blog.title}</span>
             <p className="desc" style={{marginTop: '15px'}}>
                {description}
             </p>
+          </div>
+          <div className="card-action">
+            <Link className="text-right" to={`/blog/read-one/${blog._id}`}>Read Blog</Link>
           </div>
         </div>
       </div>

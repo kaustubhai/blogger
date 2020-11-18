@@ -33,8 +33,8 @@ const Login = props => {
     }
 
     return (
-        <div className="container form-container">
-            <h1 className="my-2">
+        <div className="container  form-container">
+            <h1 className="my-1">
                 Account <span className="text-primary">Register</span>
             </h1>
             <form autoComplete="off" onSubmit={onSubmit}>
@@ -58,7 +58,8 @@ const Login = props => {
                     <label htmlFor="password2">Confirm Password <span className="text-danger">*</span> </label>
                     <input type="password" onChange={(e) => setPassword2(e.target.value)} value={password2} name="password"></input>
                 </div>
-                <input type="submit" className="btn btn-primary btn-block" value="Register" style={{padding: '10px 0px', marginTop: '25px'}}/>
+                <button type="submit" className="btn py-2 right my-2 black text-white btn-block" style={{width: '25%'}}>Register</button>
+                
             </form>
         </div>
     )

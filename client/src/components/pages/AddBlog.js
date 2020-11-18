@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import BlogContext from '../../context/Blogs/BlogContext'
 
 const AddBlog = props => {
@@ -36,9 +36,9 @@ const AddBlog = props => {
                     </div>
                     <div className="form-group">
                         <label htmlFor="description">Description <span className="text-danger">*</span> </label>
-                        <textarea onChange={ (e) => setDescription(e.target.value)} rows="6" type="text" name="description" placeholder="Your Blog Content goes here" required></textarea>
+                        <textarea onChange={ (e) => setDescription(e.target.value)}  type="text" name="description" id="textarea1" class="materialize-textarea" rows="7" placeholder="Your Blog Content goes here" required></textarea>
                     </div>
-                    <input type="submit" className="btn btn-primary btn-block" value="Add new Blog" style={{padding: '10px 0px', marginTop: '25px'}}/>
+                    <button type="submit" className="btn py-2 right my-2 black text-white btn-block" style={{width: '25%'}}>Add new Blog</button>
                 </form>
             </div>
         </div>

@@ -37,7 +37,7 @@ const Login = props => {
                     <label htmlFor="password">Password <span className="text-danger">*</span> </label>
                     <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} name="password"></input>
                 </div>
-                <input type="submit" className="btn btn-primary btn-block" value="Login" style={{padding: '10px 0px', marginTop: '25px'}}/>
+                <button type="submit" className="btn py-2 right my-2 black text-white btn-block" style={{width: '25%'}}>Login</button>
             </form>
         </div>
     )
