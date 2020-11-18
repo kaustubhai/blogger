@@ -26,26 +26,26 @@ Router.post('/login', async (req, res) => {
     const { email, password } = req.body
     const user = await User.findOne({ email })
     if (!user)
-        return res.status(400).send("No User Found. You need to register first")
-        const isMatch = await bcrypt.compare(password, user.password)
-        if (!isMatch)
-            return res.status(400).json({ msg: "Invalid Credentials" })
-        
-        const payload = {
-            user: {
-                id: user.id,
-                username: user.username
-            }
+        return res.status(400).json({msg: "No User Found. You need to register first"})
+    const isMatch = await bcrypt.compare(password, user.password)
+    if (!isMatch)
+        return res.status(400).json({ msg: "Invalid Credentials" })
+    
+    const payload = {
+        user: {
+            id: user.id,
+            username: user.username
         }
+    }
 
-        jwt.sign(payload, 'kaustubh229', {
-            expiresIn: 3600
-        }, (err, token) => {
-                if (err)
-                    throw err
-                
-                res.json({token})
-        })
+    jwt.sign(payload, 'kaustubh229', {
+        expiresIn: 3600
+    }, (err, token) => {
+            if (err)
+                throw err
+            
+            res.json({token})
+    })
 })
 
 // @Route: POST/api/user/register

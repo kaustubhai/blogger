@@ -49,9 +49,11 @@ textarea.materialize-textarea{height: 25vh;}
   color: #000 !important;
 }
 
+
 .menuItem{
   color: #000;
   padding: 0.4em 0.5em;
+  margin-right: 2em;
   border-bottom: 1px solid #f1f1f1;
 }
 

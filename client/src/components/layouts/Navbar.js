@@ -68,14 +68,15 @@ const Navbar = (props) => {
                             onClose={handleClose}
                             TransitionComponent={Fade}
                         >
-                            <MenuItem><a className="menuItem" href="/">Read Blogs</a></MenuItem>
-                            <MenuItem><a className="menuItem" href="/user/dashboard">Dashboard</a></MenuItem>
-                            <MenuItem><a className="menuItem" href="/user/profile">Profile</a></MenuItem>
-                            <MenuItem><a className="menuItem" href="/blog/add-new">Write a new Blog</a></MenuItem>
+                            <MenuItem><a className="menuItem" href="/">Home</a></MenuItem>
+                            <MenuItem><a className="menuItem" href="/user/dashboard">Profile</a></MenuItem>
+                            <MenuItem><a className="menuItem" href="/blog/add-new">Write a Blog</a></MenuItem>
+                            <MenuItem><button className=" btn white black-text" href="/plans/upgrade" style={{width: '100%', marginTop: '25px', border: '1px solid #000'}}>Upgrade</button></MenuItem>
+                            <MenuItem><button className="btn black white-text" href="/" style={{width: '100%'}} onClick={onClick}>Signout</button></MenuItem>
                         </Menu>
                         </li>
                         <li >    
-                            <a onClick={onClick} className="waves-effect flat white black-text waves-light btn" href="/user/profile">Sign Out</a>
+                            <a className="waves-effect flat white black-text waves-light btn" href="/blog/add-new">Write a Blog</a>
                         </li>
                     </ul>
                 </div>

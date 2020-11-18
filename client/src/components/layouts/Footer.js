@@ -13,10 +13,9 @@ const Footer = () => {
               <div className="col offset-s2 s4">
                 <h5 className="white-text">GoTo Links</h5>
                 <ul>
-                  <li><a className="grey-text text-lighten-3" href="/">Read Blogs</a></li>
-                  <li><a className="grey-text text-lighten-3" href="/user/dashboard">Dashboard</a></li>
-                  <li><a className="grey-text text-lighten-3" href="/blog/add-new">Add New Blog</a></li>
-                  <li><a className="grey-text text-lighten-3" href="/user/profile">Profile</a></li>
+                  <li><a style={{paddingBottom: '15px'}} className="grey-text text-lighten-3" href="/">Read Blogs</a></li>
+                  <li><a style={{paddingBottom: '15px'}} className="grey-text text-lighten-3" href="/user/dashboard">Visit Profile</a></li>
+                  <li><a style={{paddingBottom: '15px'}} className="grey-text text-lighten-3" href="/blog/add-new">Add New Blog</a></li>
                 </ul>
               </div>
             </div>
