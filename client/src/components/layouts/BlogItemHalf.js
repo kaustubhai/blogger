@@ -15,53 +15,46 @@ const BlogItemHalf = ({ blog }) => {
     deleteBlog(blog._id)
   }
 
+    
   if(user)
     return (
-      <div className={user._id === blog.author ? 'blog-item-half card' : 'card'}>
-        <div className="btn-hide-row">
-          <button className='btn-edit'><a href={`/blog/update-one/${blog._id}`}>Edit</a></button>  
-          <button style={{cursor: "pointer"}} className='btn-edit' onClick={ onClickDelete }>Delete</button>  
-        </div>
-        <img
-            src={blog.image}
-            height="200px"
-            alt={blog.title}
-            style={{ objectFit: "cover", marginBottom: "15px", marginTop: "5px" }}
-          />
-
-          <h1 style={{ marginBottom: "10px" }}>{blog.title}</h1>
-          <hr />
-          <p className="desc" style={{marginTop: '15px'}}>
-            {description}
-          </p>
-          <div style={{ marginTop: "15px" }}>
-            <h4 style={{ display: "inline" }}>{blog.initials.charAt(0).toUpperCase() + blog.initials.slice(1)}</h4>
-            <a style={{ float: "right" }} href={`/blog/read-one/${blog._id}`}>
-              Read More
-            </a>
+      <div class="col s12 m6">
+        <div class="card">
+          <div class="card-image">
+              <img src={blog.image}
+              height="200px"
+              alt={blog.title}
+              style={{ objectFit: "cover", marginBottom: "15px", marginTop: "5px" }} />
+              
+                  <a style={{display: user._id === blog.author ? '' : 'none'}} class="btn-floating halfway-fab waves-effect waves-light red" href={`/blog/update-one/${blog._id}`}><i class="material-icons">edit</i></a>
+                
+          </div>
+          
+          <div class="card-content">
+          <span class="card-title">{blog.title}</span>
+            <p className="desc" style={{marginTop: '15px'}}>
+               {description}
+            </p>
           </div>
         </div>
+      </div>
     );
   
     return (
-      <div className="card">  
-      <img
-          src={blog.image}
-          height="200px"
-          alt={blog.title}
-          style={{ objectFit: "cover", marginBottom: "15px", marginTop: "5px" }}
-        />
-
-        <h1 style={{ marginBottom: "10px" }}>{blog.title}</h1>
-        <hr />
-        <p className="desc" style={{marginTop: '15px'}}>
-          {description}
-        </p>
-        <div style={{ marginTop: "15px" }}>
-          <h4 style={{ display: "inline" }}>{blog.initials.charAt(0).toUpperCase() + blog.initials.slice(1)}</h4>
-          <a style={{ float: "right" }} href={`/blog/read-one/${blog._id}`}>
-            Read More
-          </a>
+      <div class="col s12 m6">
+        <div class="card">
+          <div class="card-image">
+              <img src={blog.image}
+              height="200px"
+              alt={blog.title}
+              style={{ objectFit: "cover", marginBottom: "15px", marginTop: "5px" }}/>
+          </div>
+          <div class="card-content">
+          <span class="card-title">{blog.title}</span>
+            <p className="desc" style={{marginTop: '15px'}}>
+               {description}
+            </p>
+          </div>
         </div>
       </div>
   );

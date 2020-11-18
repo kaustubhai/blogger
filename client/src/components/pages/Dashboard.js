@@ -14,14 +14,16 @@ const Dashboard = () => {
 
     if (!blogs || blogs.length === 0 )
         return (
-            <div className="container grid grid-2">
+            <div className="grid grid-2">
                 <h3>No Blogs Found. Try Refreshing</h3>
             </div>
         )
 
     return (
-        <div className="container grid grid-2">
-            { blogs.map((blog) => <BlogItemHalf key={blog._id} blog={blog}></BlogItemHalf>)}
+        <div className="container">
+            <div className="row">
+                { blogs.map((blog) => <BlogItemHalf key={blog._id} blog={blog}></BlogItemHalf>)}
+            </div>
         </div>
     )
 }
