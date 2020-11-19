@@ -21,6 +21,9 @@ ___
 @Route: **GET** */api/blog*  
 @Desc: Read existing blogs of current user
 
+@Route: **GET** */api/blog/:id*
+@Desc: Fetch specific blog
+
 @Route: **PUT** */api/blog/:id*  
 @Desc: Update an existing blog 
 
