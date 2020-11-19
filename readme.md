@@ -1,5 +1,21 @@
 # Blogging App  
 
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm install`
+
+To install all the dependencies
+
+### `npm start`
+
+To open only the frontend client mode
+
+### `npm run dev`
+
+To open the website (backend+frontend on)
+
 ## Backend Routes: 
 
 @Route: **GET** */api/user/dashboard*  
