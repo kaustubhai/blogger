@@ -65,6 +65,9 @@ Router.post('/register', async (req, res) => {
             if (user)
                 return res.status(400).json({ msg: 'Choose different username. This one is already taken' })
             
+            if (!(name.trim().indexOf(' ') > 0))
+                return res.status(400).json({ msg: "Please Enter your full name"})
+            
             user = new User({
                 name, username, email, password
             }) 

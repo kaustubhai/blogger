@@ -8,7 +8,9 @@ const Footer = () => {
             <div className="row">
               <div className="col s6">
                 <h5 className="white-text">Bass Blogs</h5>
-                <p className="grey-text text-lighten-4">Give wings to your ideas and let them spread all across the globe and let it spread</p>
+              <p className="grey-text text-lighten-4">Give wings to your ideas and let them spread all across the globe and let it spread <br />
+              A lot is coming over, to know More, <a className="white-text" style={{textDecoration: 'underline', paddingBottom: '5px'}} href="/coming-soon">Click Here!</a>
+              </p>
               </div>
               <div className="col offset-s2 s4">
                 <h5 className="white-text">GoTo Links</h5>

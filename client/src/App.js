@@ -14,6 +14,7 @@ import UserDashboard from './components/pages/UserDashboard';
 import UpdateBlog from './components/pages/UpdateBlog';
 import Footer from './components/layouts/Footer';
 import PrivateRoute from './components/Routing/PrivateRoute'
+import ComingSoon from './components/pages/ComingSoon';
 
 if (localStorage.getItem('token'))
   setAuthToken(localStorage.getItem('token'))
@@ -30,6 +31,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/blog/read-one/:id" component={BlogSingle} />
+            <Route exact path="/coming-soon" component={ComingSoon} />
             <PrivateRoute exact path="/blog/add-new" component={AddBlog} />
             <PrivateRoute exact path="/blog/update-one/:id" component={UpdateBlog} />
             <PrivateRoute exact path="/user/dashboard" component={UserDashboard} />
