@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Route, Redirect } from 'react-router-dom'
 import AuthContext from '../../context/auth/AuthContext'
+import Preloader from '../layouts/PreLoader'
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
 
@@ -11,9 +12,9 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     return (
         <Route {...rest} render={
             props => {
-                if (isAuthenticated !== null && !loading)
+                if (isAuthenticated)
                     return <Component {...props} />
-                else {
+                else if(!isAuthenticated && !loading) {
                     return <Redirect to="/login" />
                 }
             }

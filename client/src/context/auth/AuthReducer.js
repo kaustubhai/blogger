@@ -58,6 +58,7 @@ const AuthReducer = (state, action) => {
         case REMOVE_ALERT:
             return ({
                 ...state,
+                loading: false,
                 errors: null,
             })
         default:

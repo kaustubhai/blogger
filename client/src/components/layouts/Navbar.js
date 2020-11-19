@@ -35,7 +35,7 @@ const Navbar = (props) => {
         logoutUser()
     }
     
-    if (!isAuthenticated && !loading && !user) {
+    if (!isAuthenticated && !user) {
         return (
             <nav style={{marginBottom: '50px'}} className="black ">
                 <div style={{paddingLeft: '50px', paddingRight: '50px'}} className="nav-wrapper">
@@ -68,9 +68,9 @@ const Navbar = (props) => {
                             onClose={handleClose}
                             TransitionComponent={Fade}
                         >
-                            <MenuItem><a className="menuItem" href="/">Home</a></MenuItem>
-                            <MenuItem><a className="menuItem" href="/user/dashboard">Profile</a></MenuItem>
-                            <MenuItem><a className="menuItem" href="/blog/add-new">Write a Blog</a></MenuItem>
+                            <a href="/"><MenuItem className="menuItem">Home</MenuItem></a>
+                            <a href="/user/dashboard"><MenuItem className="menuItem">Profile</MenuItem></a>
+                            <a href="/blog/add-new"><MenuItem className="menuItem">Write a Blog</MenuItem></a>
                             <MenuItem><button className=" btn white black-text" href="/plans/upgrade" style={{width: '100%', marginTop: '25px', border: '1px solid #000'}}>Upgrade</button></MenuItem>
                             <MenuItem><button className="btn black white-text" href="/" style={{width: '100%'}} onClick={onClick}>Signout</button></MenuItem>
                         </Menu>

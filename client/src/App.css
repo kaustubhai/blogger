@@ -49,6 +49,9 @@ textarea.materialize-textarea{height: 25vh;}
   color: #000 !important;
 }
 
+#nav-mobile a{
+  color: #000 !important;
+}
 
 .menuItem{
   color: #000;

@@ -28,6 +28,7 @@ const Login = props => {
             <h1 className="my-2">
                 Account <span className="text-primary">Login</span>
             </h1>
+            <p className="right">Don't have an Account? <a href="/register">Register</a></p>
             <form autoComplete="off" onSubmit={onSubmit}>
                 <div className="form-group">
                     <label htmlFor="email">Email <span className="text-danger">*</span> </label>
@@ -39,6 +40,7 @@ const Login = props => {
                 </div>
                 <button type="submit" className="btn py-2 right my-2 black text-white btn-block" style={{width: '25%'}}>Login</button>
             </form>
+
         </div>
     )
 }

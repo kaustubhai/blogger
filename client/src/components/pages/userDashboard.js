@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react'
 import BlogContext from '../../context/Blogs/BlogContext'
 import AuthContext from '../../context/auth/AuthContext'
 import BlogItemHalf from '../layouts/BlogItemHalf'
+import Preloader from '../layouts/PreLoader'
 
 const UserDashboard = () => {
 
@@ -11,16 +12,16 @@ const UserDashboard = () => {
     const { user } = authContext
 
     useEffect(() => {
-        console.log('hello')
         getUserBlogs()
 
         // eslint-disable-next-line
-    }, [blogs])
+    }, [])
 
     if(!blogs)
         return (
-            <div>
-                Loading
+            <div className="container">
+                <h3>{ user.name.charAt(0).toUpperCase() + user.name.slice(1) }</h3>
+                <h6><strong className="grey-text bold">Username:</strong> { user.username }<span className="right"><strong className="grey-text bold">Blogs Count:</strong> { 0 }</span></h6>
             </div>
         )
     return (

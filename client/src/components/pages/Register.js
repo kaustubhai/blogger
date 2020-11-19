@@ -37,6 +37,7 @@ const Login = props => {
             <h1 className="my-1">
                 Account <span className="text-primary">Register</span>
             </h1>
+            <p className="right">Already have an Account? <a href="/login">Login</a></p>
             <form autoComplete="off" onSubmit={onSubmit}>
                 <div className="form-group">
                     <label htmlFor="name">Name <span className="text-danger">*</span> </label>
