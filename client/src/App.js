@@ -1,6 +1,6 @@
 import './App.css';
 import Navbar from './components/layouts/Navbar';
-import  { BrowserRouter as Router, Route } from 'react-router-dom'
+import  { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import Dashboard from './components/pages/Dashboard';
@@ -27,7 +27,7 @@ function App() {
         <BlogState>
           <Navbar />
           <AlertPop/>
-          <Router>
+          <Switch>
             <Route exact path="/" component={Dashboard} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
@@ -37,7 +37,7 @@ function App() {
             <PrivateRoute exact path="/blog/update-one/:id" component={UpdateBlog} />
             <PrivateRoute exact path="/user/dashboard" component={UserDashboard} />
             <Route component={NotFound} />
-          </Router>
+          </Switch>
           <Footer/>
         </BlogState>
       </AuthState>
