@@ -37,7 +37,6 @@ const BlogReducer = (state, action) => {
                 loading: false
             })
         case DELETE_BLOG:
-            console.log(action.payload)
             return ({
                 ...state,
                 blog: action.payload,

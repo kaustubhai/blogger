@@ -3,6 +3,7 @@ const Router = express.Router()
 const auth = require('../middleware/auth')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const config = require('config');
 
 const User = require('../models/user')
 
@@ -23,29 +24,34 @@ Router.get('/', auth, async (req, res) => {
 // @Desc: Take email, password, match in database, assign jwt
 
 Router.post('/login', async (req, res) => {
-    const { email, password } = req.body
-    const user = await User.findOne({ email })
-    if (!user)
-        return res.status(400).json({msg: "No User Found. You need to register first"})
-    const isMatch = await bcrypt.compare(password, user.password)
-    if (!isMatch)
-        return res.status(400).json({ msg: "Invalid Credentials" })
-    
-    const payload = {
-        user: {
-            id: user.id,
-            username: user.username
+    try {
+        const { email, password } = req.body
+        const user = await User.findOne({ email })
+        if (!user)
+            return res.status(400).json({msg: "No User Found. You need to register first"})
+        const isMatch = await bcrypt.compare(password, user.password)
+        if (!isMatch)
+            return res.status(400).json({ msg: "Invalid Credentials" })
+        
+        const payload = {
+            user: {
+                id: user.id,
+                username: user.username
+            }
         }
+    
+        jwt.sign(payload, config.get('security_key'), {
+            expiresIn: 3600
+        }, (err, token) => {
+                if (err)
+                    throw err
+                
+                res.json({token})
+        })
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ msg: "Internal Server Error"})
     }
-
-    jwt.sign(payload, 'kaustubh229', {
-        expiresIn: 3600
-    }, (err, token) => {
-            if (err)
-                throw err
-            
-            res.json({token})
-    })
 })
 
 // @Route: POST/api/user/register
@@ -82,7 +88,7 @@ Router.post('/register', async (req, res) => {
                 }
             }
 
-            jwt.sign(payload, 'kaustubh229', {
+            jwt.sign(payload, config.get('security_key'), {
                 expiresIn: 3600
             }, (err, token) => {
                     if (err)

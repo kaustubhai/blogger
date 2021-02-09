@@ -15,12 +15,10 @@ const UpdateBlog = props => {
                 setTitle(blog.title)
                 setImage(blog.image)
                 setDescription(blog.description)
-                console.log('suc')
             }).catch(() => {
                 setTitle('')
                 setImage('')
                 setDescription('')
-                console.log('run')
             })
         // eslint-disable-next-line
     }, [loading])
@@ -31,7 +29,6 @@ const UpdateBlog = props => {
 
     if (!blog){
         x++
-        console.log(x)
         return <h3>Loading...</h3>
     }
 
@@ -43,7 +40,6 @@ const UpdateBlog = props => {
     const onSubmit = (e) => {
         e.preventDefault()
         updateBlog(blogToBe, id)
-        console.log(blogToBe)
     } 
 
     const onClickDelete = (e) => {
