@@ -1,6 +1,6 @@
 import './App.css';
 import Navbar from './components/layouts/Navbar';
-import  { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import  { Route, Switch } from 'react-router-dom'
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 import Dashboard from './components/pages/Dashboard';
@@ -10,7 +10,7 @@ import setAuthToken from './context/utils/setAuthToken'
 import BlogSingle from './components/pages/BlogSingle';
 import AlertPop from './components/layouts/AlertPop';
 import AddBlog from './components/pages/AddBlog';
-import UserDashboard from './components/pages/UserDashboard';
+import UserDashboard from './components/pages/userDashboard';
 import UpdateBlog from './components/pages/UpdateBlog';
 import Footer from './components/layouts/Footer';
 import PrivateRoute from './components/Routing/PrivateRoute'
