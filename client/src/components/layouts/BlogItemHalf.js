@@ -1,15 +1,16 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import AuthContext from '../../context/auth/AuthContext'
-import BlogContext from '../../context/Blogs/BlogContext'
+var parser = new DOMParser();
 
 const BlogItemHalf = ({ blog }) => {
 
   const description = blog.description;
   const authContext = useContext(AuthContext)
-  const blogContext = useContext(BlogContext)
 
   const { user } = authContext
+
+  var htmlDoc = parser.parseFromString(description, 'text/html');
     
   if(user)
     return (
@@ -28,7 +29,7 @@ const BlogItemHalf = ({ blog }) => {
           <div className="card-content">
           <span className="card-title">{blog.title}</span>
             <p className="desc" style={{marginTop: '15px'}}>
-               {description}
+               {htmlDoc.firstElementChild.innerText}
             </p>
           </div>
           <div className="card-action">
@@ -50,7 +51,7 @@ const BlogItemHalf = ({ blog }) => {
           <div className="card-content">
           <span className="card-title">{blog.title}</span>
             <p className="desc" style={{marginTop: '15px'}}>
-               {description}
+               {htmlDoc.firstElementChild.innerText}
             </p>
           </div>
           <div className="card-action">

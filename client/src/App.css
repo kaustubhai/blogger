@@ -21,7 +21,10 @@ body{
 }
 
 footer {
+  padding-top: 5em !important;
+  padding-bottom: 5em;
   margin-top: auto;
+  width: 100%;
 }
 
 .my-1{
@@ -72,3 +75,17 @@ textarea.materialize-textarea{height: 25vh;}
   background-color: transparent;
 }
 
+/* Editor */
+.ck-editor__editable_inline {
+  min-height: 400px;
+}
+
+.material-not-hover{
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+.material-not-hover:focus{
+  border-bottom: none !important;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+}

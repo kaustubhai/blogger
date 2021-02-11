@@ -30,7 +30,7 @@ const Dashboard = () => {
             <h6 style={{paddingBottom: '25px'}} className="center-align">This Part will always be free we Promise.</h6>
             <div style={{marginBottom: '50px'}} className="divider z-depth-2"></div>
             <div className="row">
-                { blogs.map((blog) => <BlogItemHalf key={blog._id} blog={blog}></BlogItemHalf>)}
+                { blogs.slice(0).reverse().map((blog) => <BlogItemHalf key={blog._id} blog={blog}></BlogItemHalf>)}
             </div>
         </div>
     )

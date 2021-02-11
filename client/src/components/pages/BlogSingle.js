@@ -29,7 +29,7 @@ const BlogSingle = () => {
             <div>
                 <h2 className="center-align">{title}</h2>
                 <h5 className="right-align" style={{marginBottom: '50px'}}>- { initials }</h5>
-                <p style={{marginBottom:'50px'}} className="center-align"><i class="fas fa-quote-left fa-3x fa-pull-left "></i>{ description }</p>
+                <i class="fas fa-quote-left fa-3x fa-pull-left "></i><div style={{marginBottom:'50px'}} dangerouslySetInnerHTML={{ __html: description }}></div>
             </div>
             <div style={{marginTop: '25px', padding: '15px'}} className="card row">
                 <h6 className="col s12 m6 center-align" style={{paddingLeft: '25px', display: 'inline-block'}}><i className="fas fa-user-edit"></i> Author: { initials.charAt(0).toUpperCase() + initials.slice(1) }</h6>

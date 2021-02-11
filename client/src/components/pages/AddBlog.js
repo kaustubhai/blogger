@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import BlogContext from '../../context/Blogs/BlogContext'
+import Editor from '../layouts/Editor'
 
 const AddBlog = props => {
 
@@ -7,9 +8,9 @@ const AddBlog = props => {
 
     const { addNewBlog, blog } = blogContext
 
-    const [title, setTitle] = useState('Your Title Goes Here')
+    const [title, setTitle] = useState('Give your blog a title here')
     const [image, setImage] = useState('https://via.placeholder.com/500x200.png?text=Your+Blog+Image+Goes+Here')
-    const [description, setDescription] = useState('Your Blog Content goes here')
+    const [description, setDescription] = useState("<p>Start Writing Here</p>")
 
     const blogToBe = { title, image, description }
     
@@ -23,20 +24,16 @@ const AddBlog = props => {
 
     return (
         <div className="container ">
-            <h1 className="all-center">Add a new Blog</h1>
             <div className="p-1 my-1 form-container">
                 <form autoComplete="off" onSubmit={onSubmit}>
                     <div className="form-group">
-                        <label htmlFor="title">Title <span className="text-danger">*</span> </label>
-                        <input type="text" name="title" onChange={ (e) => { setTitle(e.target.value) } } placeholder="Your Title Goes Here"  required></input>
+                        <input className="material-not-hover" style={{fontSize: "4em", height: "1.5em"}} type="text" name="title" onChange={ (e) => { setTitle(e.target.value) } } value={title} placeholder="Your Title Goes Here"  required></input>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="image">Image URL <span className="text-danger">*</span> </label>
-                        <input type="url" name="image" onChange={ (e) => { setImage(e.target.value) } } placeholder="Enter Image URL" required ></input>
+                        <input className="material-not-hover" type="url" name="image" onChange={ (e) => { setImage(e.target.value) } } placeholder="Enter Image URL" required ></input>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="description">Description <span className="text-danger">*</span> </label>
-                        <textarea onChange={ (e) => setDescription(e.target.value)}  type="text" name="description" id="textarea1" class="materialize-textarea" rows="7" placeholder="Your Blog Content goes here" required></textarea>
+                        <Editor description={description} setDescription={setDescription}/>
                     </div>
                     <button type="submit" className="btn py-2 right my-2 black text-white btn-block" style={{width: '25%'}}>Add new Blog</button>
                 </form>
