@@ -16,7 +16,7 @@ const AlertPop = () => {
         }, 4000)
             
         return (
-            <div className="card m-1 p-1 center-all" style={{ position: 'absolute', right: 10, top: 70, borderRadius: '15px', boxShadow: '0 10px 6px -6px #777', maxWidth: '1100px', backgroundColor: '#000', color: "#fff", padding: '1rem 3rem'}}>
+            <div className="card m-1 p-1 center-all" style={{ position: 'absolute', right: 10, top: 70, borderRadius: '15px', boxShadow: '0 10px 6px -6px #777', maxWidth: '1100px', backgroundColor: '#000', zIndex: 1000, color: "#fff", padding: '1rem 3rem'}}>
                 <p>{ errors }</p>
             </div>
         )
@@ -28,7 +28,7 @@ const AlertPop = () => {
         }, 4000)
             
         return (
-            <div className="card m-1 p-1 center-all" style={{ position: 'absolute', right: 10, top: 70, borderRadius: '15px', boxShadow: '0 10px 6px -6px #777', maxWidth: '1100px', backgroundColor: '#000', color: "#fff", padding: '1rem 3rem'}}>
+            <div className="card m-1 p-1 center-all" style={{ position: 'absolute', right: 10, top: 70, borderRadius: '15px', boxShadow: '0 10px 6px -6px #777', maxWidth: '1100px', backgroundColor: '#000', zIndex: 1000, color: "#fff", padding: '1rem 3rem'}}>
                 <p>{ alert }</p>
             </div>
         )

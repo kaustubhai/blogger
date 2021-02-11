@@ -12,6 +12,7 @@ const BlogSingle = () => {
 
     useEffect(() => {
         getOneBlog(id)
+        
         // eslint-disable-next-line
     }, [])
     

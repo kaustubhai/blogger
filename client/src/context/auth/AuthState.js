@@ -34,7 +34,7 @@ const AuthState = props => {
                 dispatch({ type: USER_LOADED, payload: user.data })
             }
         } catch (error) {
-            dispatch({ type: AUTH_ERROR, payload: error.response.data.msg })
+            dispatch({ type: AUTH_ERROR, payload: error })
             console.log(error)
         }
     }
@@ -51,7 +51,7 @@ const AuthState = props => {
             dispatch({ type: REGISTER_SUCCESS, payload: user.data.token })
             loadUser()
         } catch (error) {
-            dispatch({ type: AUTH_ERROR, payload: error.response.data.msg })
+            dispatch({ type: AUTH_ERROR, payload: error })
             console.log(error.response.data.msg)
         }
     }
@@ -69,7 +69,7 @@ const AuthState = props => {
             loadUser()
         } catch (error) {
             console.log(error)
-            dispatch({ type: AUTH_ERROR, payload: error.response.data.msg })
+            dispatch({ type: AUTH_ERROR, payload: error })
         }
     }
 

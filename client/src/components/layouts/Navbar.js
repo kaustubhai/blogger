@@ -57,7 +57,7 @@ const Navbar = (props) => {
                     <ul id="nav-mobile" className="right">
                         <li>
                         <Button className="waves-effect flat white-text waves-light btn" aria-controls="fade-menu" aria-haspopup="true" onClick={handleClick}>
-                                Hello {user.name}    
+                                Hello {user && user.name}    
                         </Button>
                         <Menu
                             id="fade-menu"

@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from 'react'
 import BlogContext from '../../context/Blogs/BlogContext'
 import AuthContext from '../../context/auth/AuthContext'
 import BlogItemHalf from '../layouts/BlogItemHalf'
-import Preloader from '../layouts/PreLoader'
 
 const UserDashboard = () => {
 
@@ -10,6 +9,7 @@ const UserDashboard = () => {
     const authContext = useContext(AuthContext)
     const { getUserBlogs, blogs } = blogContext
     const { user } = authContext
+    
 
     useEffect(() => {
         getUserBlogs()

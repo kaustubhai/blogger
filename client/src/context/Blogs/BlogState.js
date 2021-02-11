@@ -50,10 +50,8 @@ const BlogState = props => {
             }
         try {
             if (localStorage.getItem('token')) {
-                setAuthToken(localStorage.getItem('token'))
-                const res = await axios.post('http://localhost:5000/api/blog', formData, config)
+                const res = await axios.post('/api/blog', formData, config)
                 dispatch({ type: POST_BLOG, payload: res.data })
-            
             }
         }
         catch (error) {
@@ -63,9 +61,7 @@ const BlogState = props => {
 
     const getUserBlogs = async () => {
         try {
-            if (localStorage.getItem('token'))
-                setAuthToken(localStorage.getItem('token'))
-            const res = await axios.get('http://localhost:5000/api/blog');
+            const res = await axios.get('/api/blog');
             console.log(res.data)
             dispatch({ type: USER_BLOG, payload: res.data})
         } catch (error) {
@@ -80,12 +76,8 @@ const BlogState = props => {
                 }
             }
         try {
-            if (localStorage.getItem('token')) {
-                setAuthToken(localStorage.getItem('token'))
-                const res = await axios.put(`http://localhost:5000/api/blog/${id}`, formData, config)
+                const res = await axios.put(`/api/blog/${id}`, formData, config)
                 dispatch({ type: UPDATE_BLOG, payload: res.data })
-            
-            }
         }
         catch (error) {
             console.log(error)
@@ -94,9 +86,7 @@ const BlogState = props => {
 
     const loadBlog = async (id) => {
         try {
-            if (localStorage.getItem('token'))
-                setAuthToken(localStorage.getItem('token'))
-            const res = await axios.put(`http://localhost:5000/api/blog/${id}`)
+            const res = await axios.put(`/api/blog/${id}`)
             dispatch({ type: LOAD_BLOG, payload: res.data })
         } catch (error) {
             console.log(error)
@@ -106,9 +96,7 @@ const BlogState = props => {
     const deleteBlog = async (id) => {
         console.log(id)
         try {
-            if (localStorage.getItem('token'))
-                setAuthToken(localStorage.getItem('token'))
-            const res = await axios.delete(`http://localhost:5000/api/blog/${id}`)
+            const res = await axios.delete(`/api/blog/${id}`)
             dispatch({ type: DELETE_BLOG, payload: res.data })
         } catch (error) {
             console.log(error)

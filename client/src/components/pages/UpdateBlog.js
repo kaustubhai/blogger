@@ -5,7 +5,7 @@ import BlogContext from '../../context/Blogs/BlogContext'
 const UpdateBlog = props => {
 
     const blogContext = useContext(BlogContext)
-    const { updateBlog, blog, loadBlog, loading, alert, deleteBlog } = blogContext
+    const { updateBlog, blog, loadBlog, loading, alert, deleteBlog, getUserBlogs, blogs } = blogContext
 
     const id = window.location.href.split('-')[1].split('/')[1]
     var x = 1
@@ -20,6 +20,8 @@ const UpdateBlog = props => {
                 setImage('')
                 setDescription('')
             })
+        
+            getUserBlogs()
         // eslint-disable-next-line
     }, [loading])
 

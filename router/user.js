@@ -3,7 +3,6 @@ const Router = express.Router()
 const auth = require('../middleware/auth')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const config = require('config');
 
 const User = require('../models/user')
 
@@ -40,14 +39,11 @@ Router.post('/login', async (req, res) => {
             }
         }
     
-        jwt.sign(payload, config.get('security_key'), {
+        const token = jwt.sign(payload, process.env.SECURITY_KEY, {
             expiresIn: 3600
-        }, (err, token) => {
-                if (err)
-                    throw err
-                
-                res.json({token})
         })
+
+        res.cookie('token', token, { httpOnly: true }).json(token)
     } catch (error) {
         console.log(error)
         res.status(500).json({ msg: "Internal Server Error"})
@@ -88,17 +84,11 @@ Router.post('/register', async (req, res) => {
                 }
             }
 
-            jwt.sign(payload, config.get('security_key'), {
+            const token = jwt.sign(payload, process.env.SECURITY_KEY, {
                 expiresIn: 3600
-            }, (err, token) => {
-                    if (err)
-                        throw err
-                    
-                    res.json({token})
             })
-
-            console.log(req.user)
-
+    
+            res.cookie('token', token, { httpOnly: true }).json(token)
         }
         catch (e) {
             console.log(e)
