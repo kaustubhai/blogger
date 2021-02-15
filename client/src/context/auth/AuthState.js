@@ -53,6 +53,7 @@ const AuthState = props => {
         } catch (error) {
             dispatch({ type: AUTH_ERROR, payload: error.response.data.msg })
             console.log(error)
+            return false
         }
     }
 

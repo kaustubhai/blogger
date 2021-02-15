@@ -6,6 +6,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Fade from '@material-ui/core/Fade';
 
+import GoogleLogin from 'react-google-login';
 
 const Navbar = (props) => {
 
@@ -23,10 +24,21 @@ const Navbar = (props) => {
     
     const authContext = useContext(AuthContext)
 
-    const { logoutUser, loadUser, user, isAuthenticated, loading } = authContext
+    const { logoutUser, loadUser, user, isAuthenticated, registerUser, loginUser } = authContext
+
+    const responseGoogle = async (response) => {
+        const userRegister = { name: `${response.profileObj.givenName} ${response.profileObj.familyName}`, email: response.profileObj.email, username: response.profileObj.email.split('@')[0], password: response.profileObj.googleId }
+        console.log(userRegister);
+        const chk = await registerUser(userRegister)
+        const userLogin = { email: response.profileObj.email, password: response.profileObj.googleId }
+        if (!chk)
+            loginUser(userLogin)
+        console.log(userLogin);
+    }
 
     useEffect(() => { 
         loadUser()
+        console.log(process.env);
         // eslint-disable-next-line
     }, [])
     
@@ -43,6 +55,16 @@ const Navbar = (props) => {
                     <ul id="nav-mobile" className="right">
                         <li >    
                             <a className="waves-effect white black-text waves-light btn" href="/login">Get Started</a>
+                            <GoogleLogin
+                                clientId={process.env.REACT_APP_CLIENT_ID}
+                                buttonText="Login"
+                                render={renderProps => (
+                                    <button className="waves-effect white black-text waves-light btn"  onClick={renderProps.onClick} disabled={renderProps.disabled}> Google</button>
+                                  )}
+                                onSuccess={responseGoogle}
+                                onFailure={responseGoogle}
+                                cookiePolicy={'single_host_origin'}
+                            />
                         </li>
                     </ul>
                 </div>
