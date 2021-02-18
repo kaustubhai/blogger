@@ -9,8 +9,6 @@ const ComingSoon = () => {
                 <p className="flow-text center-align">Things are Coming your way. <strong>Stay Tuned</strong></p>
                 <ol class="collection">
                     <li class="collection-item">Unsplash Api for blog Header Images</li>
-                    <li class="collection-item">Google and Facebook Auth</li>
-                    <li class="collection-item">Rich Text Editor</li>
                     <li class="collection-item">Premium Plans for Creators and Readers</li>
                     <li class="collection-item">Praising Feature for every blog</li>
                     <li class="collection-item">Saving Feature for every Blog</li>

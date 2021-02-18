@@ -59,7 +59,7 @@ const Navbar = (props) => {
                                 clientId={process.env.REACT_APP_CLIENT_ID}
                                 buttonText="Login"
                                 render={renderProps => (
-                                    <button className="waves-effect white black-text waves-light btn"  onClick={renderProps.onClick} disabled={renderProps.disabled}> Google</button>
+                                    <button style={{backgroundColor: '#f40'}} className="waves-effect waves-light btn"  onClick={renderProps.onClick} disabled={renderProps.disabled}> Login with Google</button>
                                   )}
                                 onSuccess={responseGoogle}
                                 onFailure={responseGoogle}
